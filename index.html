@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>portfolio test</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/fadeIn-animation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <!-- ===============================
+  Ripples div
+================================-->
+      <div id="area" class="area active"></div>
+      <div id="area2" class="area second-area"></div>
+      <div id="area3" class="area third-area"></div>
+
+      <!-- ===============================
+	ハンバーガーメニュー
+================================-->
+      <div id="burger-menu-container" class="burger-menu-container events-valid">
+        <div class="burger-menu-list">
+          <ul>
+            <li><a class="events-valid" href="#top">Top</a></li>
+            <li><a class="events-valid" href="#what-can-i-do">What can I do?</a></li>
+            <li><a class="events-valid" href="#my-creations">My Creations</a></li>
+            <li><a class="events-valid" href="#about-me">About Me</a></li>
+            <li><a class="events-valid" href="#inquiry-flow">Inquiry Flow</a></li>
+            <li><a class="events-valid" href="#get-in-touch-with-me">Get in Touch with Me</a></li>
+          </ul>
+        </div>
+        <div class="sns-container flex-container">
+          <div class="image-container">
+            <a class="events-valid" href="#"><img src="images/x-white-logo.png" alt="x logo" /></a>
+          </div>
+          <div class="image-container">
+            <a class="events-valid" href="#"><img src="images/github-white-logo.png" alt="github logo" /></a>
+          </div>
+        </div>
+        <div class="privacy-link">
+          <a href="privacy-policy.html" class="events-valid">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- ===============================
+	追従メニュー
+================================-->
+      <div id="follow-btn" class="follow-btn">
+        <div class="hamburger-btn events-valid">
+          <div>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===============================
+    Header
+================================-->
+      <header id="top" class="header full-width">
+        <div class="header-container flex-container">
+          <div class="site-name">
+            <a href="#" class="events-valid">
+              <div class="flex-container"><span>Yu - Web Creator's</span><span>portfoliio</span></div>
+            </a>
+          </div>
+          <!-- ハンバーガーボタン -->
+          <!-- <div id="burger-btn" class="burger-btn events-valid">
+            <p>☰</p>
+          </div> -->
+          <div id="burger-btn" class="hamburger-btn events-valid">
+            <div>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <!-- PC用ナビ -->
+          <nav class="events-valid">
+            <ul>
+              <li><a class="events-valid" href="#top">Top</a></li>
+              <li><a class="events-valid" href="#what-can-i-do">what can i do?</a></li>
+              <li><a class="events-valid" href="#my-creations">my-creations</a></li>
+              <li><a class="events-valid" href="#about-me"></a>about me</li>
+              <li><a class="events-valid" href="#inquiry-flow">inquiry-flow</a></li>
+              <li><a class="events-valid" href="#get-in-touch-with-me">get-in-touch-with-me</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- ここまで header.php -->
+
+      <!-- ここからメインコンテンツ -->
+      <!-- ===============================
+      First view
+================================-->
+      <section class="first-view">
+        <div class="view-wrapper">
+          <!-- キャッチコピー -->
+          <div class="image-container catchcopy">
+            <img class="sp-catch" src="images/SP-catchcopy.png" alt="" />
+            <img class="pc-catch" src="images/PC-catchcopy.png" alt="" />
+          </div>
+
+          <!-- メニュー・画像 -->
+          <div class="menu-pic-box flex-container">
+            <nav class="first-view-nav">
+              <ul>
+                <li><a href="#what-can-i-do" class="events-valid">What can I do?</a></li>
+                <li><a href="#my-creations" class="events-valid">My Creations</a></li>
+                <li><a href="#about-me" class="events-valid">About Me</a></li>
+                <li><a href="#inquiry-flow" class="events-valid">Inquiry Flow</a></li>
+                <li><a href="#get-in-touch-with-me" class="events-valid">Get in Touch with me</a></li>
+              </ul>
+            </nav>
+            <div class="image-container first-view-image1">
+              <img src="images/first-view1.jpg" alt="" />
+            </div>
+            <div class="image-container first-view-image2">
+              <img src="images/first-view2.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <!-- スクロールテキスト -->
+        <div class="scroll-text">
+          <ul>
+            <li>Yu - Web Creator's Portfolio&nbsp;&nbsp;</li>
+            <li>Yu - Web Creator's Portfolio&nbsp;&nbsp;</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===============================
+      Message
+================================-->
+      <section class="message container">
+        <h2><span class="font-red">目的</span>に合わせた<span class="font-red">戦略的</span>なサイト設計で<br />あなたのビジネスの成果を<span class="font-red">最大化</span></h2>
+        <!-- <p class="message-desc">
+          Webサイトは、単なる見栄えの良さだけでなく、目的を達成する力を持つべきです。<br /><br />
+          私は、あなたのビジョンを形にし、成果を生み出すサイトづくりに取り組みます。<br />SEO対策を施し、簡単に更新できるWordPressサイトで、長期的な運用をサポート。<br /><br />
+          技術力と創造性を駆使し、あなたのビジネスの成長を後押しします。<br /><br />
+          目指すのは、見た人の心に響き、行動を促す、魅力的で機能的なWebサイトです。<br />共に、あなたの夢を実現しましょう。
+        </p> -->
+        <p class="message-desc">
+          私は、ウェブサイトを単なるデザインの集合体ではなく<br />お客様の夢を実現するための powerful なツールと捉えています。<br />
+          お客様の思いに寄り添い、目的を深く理解することから始め<br />それを形にするためにデザインと技術を駆使します。<br /><br />
+          SEO対策、更新のしやすさ、長期的な成果など<br />お客様のビジネスの成長に直結する要素を大切にしています。<br />
+          私の技術力とお客様のビジョンが合わさることで<br />他にはない唯一無二のウェブサイトを生み出します。<br /><br />
+
+          訪問者の気持ちを考え、問い合わせや資料請求に<br />つなげるサイト制作を目指しています。<br />
+          営業力を兼ね備えたエンジニアとして<br />お客様の目的達成に全力を尽くします。<br /><br />
+
+          一緒に、あなたのビジネスの成果を最大化するウェブサイトを創り上げましょう。
+        </p>
+      </section>
+      <!-- ===============================
+      What can i do
+================================-->
+      <section id="what-can-i-do" class="what-can-i-do">
+        <div class="section-title-container fadeIn">
+          <h2 class="from-right">What can I do?</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <!-- カードコンテナ -->
+        <div class="container">
+          <div class="flex-container fadeIn">
+            <!-- カード１枚目 -->
+            <div class="work-card-wrapper from-left">
+              <div class="my-work-card">
+                <div class="image-container full-width">
+                  <div class="work-num">1</div>
+                  <img src="images/first-view1.jpg" alt="" />
+                </div>
+                <div class="char-box container">
+                  <h3>目的を達成するサイト構築</h3>
+                  <div class="description">
+                    <p>
+                      サイトを作る目的をしっかりとお伺いし、その目的を達成するためのサイトをお作りします。<br />
+                      サイトを通して伝えたいメッセージや、訪問者に持ってほしい印象を明確にし、訪問者の心に響くストーリー性のある構成を心がけています。<br />
+                      お客様のビジネスプランに寄り添い、サイトの狙いを的確に反映したサイト構成を提案いたします。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- カード2枚目 -->
+            <div class="work-card-wrapper from-left">
+              <div class="my-work-card">
+                <div class="image-container full-width">
+                  <div class="work-num">2</div>
+                  <img src="images/first-view1.jpg" alt="" />
+                </div>
+                <div class="char-box container">
+                  <h3>幅広い技術で柔軟に対応</h3>
+                  <div class="description">
+                    <p>
+                      HTML、CSS、JavaScript、PHP、Laravel、React/Next.jsなどを駆使し、Webサイト制作から管理システムまで幅広く対応可能です。<br />
+                      Wordpressを活用し、運営に詳しくない方でも簡単に管理できるサイトを提供。<br />
+                      最新技術で、パフォーマンスと使いやすさを両立したサイト構築いたします。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- カード3枚目 -->
+            <div class="work-card-wrapper from-left">
+              <div class="my-work-card">
+                <div class="image-container full-width">
+                  <div class="work-num">3</div>
+                  <img src="images/first-view1.jpg" alt="" />
+                </div>
+                <div class="char-box container">
+                  <h3>実務経験と実績</h3>
+                  <div class="description">
+                    <p>
+                      プログラミングスクールのポートフォリオサイトや建設会社のコーポレートサイトなど、多様な業種のWebサイトの制作実績を持っています。<br />
+                      個人ブログでは、SEOとコンテンツマーケティングにより月間24,000PVを達成。 <br />
+                      豊富な経験とノウハウを活かし、お客様のビジネスに最適なWebサイトを提供します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 強み -->
+          <div class="strength container">
+            <div class="strength-title">
+              <h3><span class="font-red">目的</span>を<span class="font-red">達成</span>する戦略的な<span class="font-red">Webサイト</span>制作</h3>
+            </div>
+
+            <div class="strength-desc">
+              <p>
+                カッコいいだけのサイトでは意味がない。<br><br>
+                
+                私が提供するのは、単なる見栄えの良いサイトではありません。<br />
+                あなたのビジネスゴールを理解し、それを達成するための戦略的なアプローチを取ったサイトです。<br /><br />
+                ターゲット層の分析、効果的なユーザー体験設計、コンバージョン率の最適化など、サイトの目的達成に直結する要素に注力します。<br />
+                技術とデザインのバランスを取りながら、成果を生み出し続けるサイトを一緒に作り上げていきましょう。<br /><br />
+                あなたのビジョンを形にし、ビジネスの成長を後押しする、そんなウェブサイトを提供します。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===============================
+      My Creations
+================================-->
+      <section id="my-creations" class="my-creations">
+        <div class="section-title-container reverse">
+          <h2>My Creations</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="container">
+          <!-- １件目の成果物 -->
+          <div class="creation-container flex-container">
+            <div class="image-container full-width">
+              <img class="ranRadius" src="images/first-view1.jpg" alt="" />
+            </div>
+            <div class="desc-container container">
+              <h3>成果物タイトル</h3>
+              <p>成果物説明<br /><br /></p>
+              <ul>
+                <li>レスポンシブ対応</li>
+                <li>カスタム投稿タイプ</li>
+                <li>JavaScriptアニメーション</li>
+              </ul>
+              <p>
+                成果物説明。<br /><br />
+                使用技術：HTML/CSS/JavaScript/Wordpress
+              </p>
+              <div class="creation-btn">
+                <a href="#" class="events-valid">
+                  <span>View Site</span>
+                  <div class="wave"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2件目の成果物 -->
+          <div class="creation-container flex-container">
+            <div class="image-container full-width">
+              <img class="ranRadius" src="images/first-view1.jpg" alt="" />
+            </div>
+            <div class="desc-container container">
+              <h3>成果物タイトル</h3>
+              <p>成果物説明<br /><br /></p>
+              <ul>
+                <li>レスポンシブ対応</li>
+                <li>カスタム投稿タイプ</li>
+                <li>JavaScriptアニメーション</li>
+              </ul>
+              <p>
+                成果物説明。<br /><br />
+                使用技術：HTML/CSS/JavaScript/Wordpress
+              </p>
+              <div class="creation-btn">
+                <a href="#" class="events-valid">
+                  <span>View Site</span>
+                  <div class="wave"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3件目の成果物 -->
+          <div class="creation-container flex-container">
+            <div class="image-container full-width">
+              <img class="ranRadius" src="images/first-view1.jpg" alt="" />
+            </div>
+            <div class="desc-container container">
+              <h3>成果物タイトル</h3>
+              <p>成果物説明<br /><br /></p>
+              <ul>
+                <li>レスポンシブ対応</li>
+                <li>カスタム投稿タイプ</li>
+                <li>JavaScriptアニメーション</li>
+              </ul>
+              <p>
+                成果物説明。<br /><br />
+                使用技術：HTML/CSS/JavaScript/Wordpress
+              </p>
+              <div class="creation-btn">
+                <a href="#" class="events-valid">
+                  <span>View Site</span>
+                  <div class="wave"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- アーカイブへのボタン -->
+          <div class="to-other-btn">
+            <button class="btn-wrap effect-valid">
+              <a href="archive.html" class="btn btn-svg events-valid">
+                <svg>
+                  <rect x="2" y="2" rx="0" fill="none" width="200" height="50"></rect>
+                </svg>
+                <span>All Others</span>
+              </a>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- ===============================
+      About Me
+================================-->
+      <section id="about-me" class="about-me">
+        <div class="section-title-container">
+          <h2>About Me</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="about-me-spacer container">
+          <div class="about-me-container container">
+            <div class="my-name">
+              <h3 class="flex-container">
+                <span>なまえ</span>
+                <span>Name</span>
+              </h3>
+            </div>
+
+            <div class="flex-container about-desc">
+              <div class="image-container">
+                <img src="images/first-view1.jpg" alt="" />
+              </div>
+              <div class="desc-container">
+                <h4>技術的にできること</h4>
+                <p class="techniques">■ HTML・CSS（SCSS）　■ JavaScript　■ Wordpress　■ React・Next.js ■PHP Laravelも可　■ SQL</p>
+                <p>
+                  もともと趣味でブログを作ったことがWeb制作のスタートでした。<br />
+                  その後、独学でサイト制作の方法を学び、最終的にスクールにてスキルをブラッシュアップ。 <br />
+                  Webサイトを作るにあたり、きちんと成果を出せるサイトを作ることで世の中の役に立ちたいと唐突に思ってしまい、サイト制作の依頼を受けるに至ります。 <br />
+                  質にはこだわったものを作りたいので、押さえどころはしっかりしておきたいです。 <br />
+                  そのうえでお互いに楽しくお仕事させていただければ嬉しいです。 <br /><br />
+                  趣味はギターとカメラです。 このサイトで使っている画像はすべて私が撮ったものを使用しました。 <br />
+                  もしご要望があれば、サイトに使う写真のご用意もさせていただきます。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===============================
+      Inquiry flow
+================================-->
+      <section id="inquiry-flow" class="inquiry-flow">
+        <div class="section-title-container reverse">
+          <h2>Inquiry Flow</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="flex-container">
+          <div class="title-pic-container">
+            <h3 class="container">Process<br /><span class="font-red">制作までの流れ</span></h3>
+            <div class="image-container full-width">
+              <img src="images/first-view2.jpg" alt="" />
+            </div>
+          </div>
+          <div class="desc-container container">
+            <!-- ステップ１ -->
+            <div class="step">
+              <p class="num font-red">01</p>
+              <h4>お問い合わせ</h4>
+              <p>
+                下記のお問い合わせフォームよりお問い合わせください。<br />
+                こちらからお電話またはメールにてお返事させていただきます。<br />
+                一度、オンライン面談の形でお話させていただきたいので、お打ち合わせの日程調整をさせていただければと思います。
+              </p>
+            </div>
+
+            <!-- ステップ2 -->
+            <div class="step">
+              <p class="num font-red">02</p>
+              <h4>お打ち合わせ</h4>
+              <p>
+                オンライン面談でどんなサイトを作りたいのか、そのサイトで何を達成したいのかなどヒアリングさせてください。<br />
+                また、制作期間やご予算もお聞かせいただけるとよりよいご提案ができるかと思います。<br />
+                お客様が納得いくまで何度でもお打ち合わせはさせていただきますので、ご希望をすべてお聞かせください。
+              </p>
+            </div>
+
+            <!-- ステップ3 -->
+            <div class="step">
+              <p class="num font-red">03</p>
+              <h4>サイト制作開始</h4>
+              <p>
+                お打ち合わせにて決めさせていただいた内容を元にサイト制作を開始します。<br />
+                まず、デザイン制作から取り掛かり、フィックスできた時点でコーディングも行います。<br />
+                出来上がった部分については随時確認していだけるようにいたします。<br />
+                実際に出来上がってきたサイトを見ているとまた新しいアイデアが出てくることかと思いますが、ぜひそれもお申し付けください。<br />
+                一緒に素敵なサイトを作りましょう。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===============================
+      Get in Touch with me
+================================-->
+      <section id="get-in-touch-with-me" class="get-in-touch-with-me">
+        <div id="particle-container" class="particle-container full-width"></div>
+
+        <div id="content-wrapper" class="content-wrapper">
+          <!-- セクションタイトル -->
+          <div class="section-title-container">
+            <h2>Get in Touch with Me</h2>
+            <div class="title-bar"></div>
+          </div>
+
+          <!-- 問い合わせフォーム -->
+          <div class="container">
+            <form class="contact-form">
+              <input class="contact-name events-valid" type="text" name="name" placeholder="お名前" />
+              <input class="contact-name events-valid" type="text" name="company_name" placeholder="会社名・屋号・組織名" />
+              <input class="contact-name events-valid" type="email" name="email" placeholder="メールアドレス" />
+              <textarea class="contact-message events-valid" name="message" placeholder="お問い合わせ内容"></textarea>
+              <input class="contact-btn events-valid" type="submit" value="送信" />
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- ここまでコンテンツ -->
+
+      <!-- ここから footer.php -->
+    </main>
+    <footer class="footer full-width">
+      <div class="container">
+        <div class="footer-desc">
+          <p class="copyright">© <span id="copyright"></span> ゆう</p>
+        </div>
+        <div class="sns-container flex-container">
+          <div class="image-container">
+            <a class="events-valid" href="https://x.com/wp_next_builder" target="_blank"><img src="images/x-logo.png" alt="x logo" /></a>
+          </div>
+          <div class="image-container">
+            <a class="events-valid" href="https://github.com/Yu62ballena" target="_blank"><img src="images/github-logo.png" alt="github logo" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.ripples@0.6.3/dist/jquery.ripples.min.js" defer></script>
+    <script src="js/particles.min.js" defer></script>
+    <script src="js/fadeIn-animation.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/common.js" defer></script>
+  </body>
+</html>

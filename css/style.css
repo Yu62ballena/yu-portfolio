@@ -1,0 +1,1281 @@
+@charset "UTF-8";
+/* ==============================
+	定数
+===============================*/
+/* ==============================
+	SP 共通
+===============================*/
+*,
+*::before,
+*::after {
+  color: #444;
+  font-family: serif;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+body {
+  font-size: 16px;
+  line-height: 30px;
+  overscroll-behavior: none;
+}
+
+main {
+  overflow: hidden;
+}
+
+.events-none {
+  pointer-events: none;
+}
+
+.events-valid {
+  pointer-events: auto;
+}
+
+.full-width {
+  width: 100vw;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section-title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.section-title-container h2, .section-title-container h1 {
+  font-size: 28px;
+  margin-left: 10px;
+  margin-right: 10px;
+  flex: 0 0 auto;
+}
+.section-title-container .title-bar {
+  height: 2px;
+  flex: 1;
+  background-color: #444;
+}
+.section-title-container.reverse {
+  flex-direction: row-reverse;
+}
+
+.font-red {
+  color: red;
+}
+
+.red-under-bar {
+  padding-bottom: 2px;
+  border-bottom: 1px solid red;
+}
+
+.creation-btn a {
+  width: 210px;
+  padding: 20px 30px;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+}
+.creation-btn a:hover .wave {
+  top: -120px;
+}
+.creation-btn a span {
+  position: relative;
+  z-index: 1;
+  color: #444;
+  font-size: 15px;
+  letter-spacing: 8px;
+}
+.creation-btn a .wave {
+  width: 210px;
+  height: 210px;
+  background-color: #eee;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 0;
+  top: -80px;
+  transition: 0.4s;
+}
+.creation-btn a .wave::before, .creation-btn a .wave::after {
+  width: 200%;
+  height: 200%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+.creation-btn a .wave::before {
+  border-radius: 45%;
+  background-color: white;
+  animation: wave 5s linear infinite;
+}
+.creation-btn a .wave::after {
+  border-radius: 40%;
+  animation: wave 10s linear infinite;
+}
+.creation-btn a .wave.red-wave::after {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+.creation-btn a .wave.blue-wave::after {
+  background-color: rgba(0, 17, 255, 0.2);
+}
+.creation-btn a .wave.orange-wave::after {
+  background-color: rgba(255, 180, 145, 0.2);
+}
+.creation-btn a .wave.green-wave::after {
+  background-color: rgba(0, 200, 40, 0.2);
+}
+@keyframes wave {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+/* ==============================
+	Ripples
+===============================*/
+.area {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  background-image: url(../images/backdrop.jpg);
+  background-size: cover;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2s;
+}
+.area.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.area.second-area {
+  background-image: url(../images/backdrop2.jpg);
+}
+.area.third-area {
+  background-image: url(../images/backdrop3.jpg);
+}
+
+/* ==============================
+	バーガーメニュー
+===============================*/
+.burger-menu-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+.burger-menu-container.active {
+  transform: none;
+}
+.burger-menu-container .burger-menu-list {
+  margin-bottom: 30px;
+}
+.burger-menu-container .burger-menu-list ul li {
+  list-style: none;
+  margin-bottom: 18px;
+}
+.burger-menu-container .burger-menu-list ul li a {
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+  transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+  padding-bottom: 5px;
+  position: relative;
+}
+.burger-menu-container .burger-menu-list ul li a::before {
+  background: red;
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform 0.2s;
+}
+.burger-menu-container .burger-menu-list ul li a:hover::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+.burger-menu-container .sns-container {
+  margin-bottom: 30px;
+}
+.burger-menu-container .sns-container.flex-container {
+  flex-direction: row;
+}
+.burger-menu-container .sns-container.flex-container .image-container:first-child {
+  margin-right: 30px;
+}
+.burger-menu-container .privacy-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.hamburger-btn {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  width: 100px;
+  height: 80px;
+  margin-top: 8px;
+}
+.hamburger-btn span {
+  display: inline-block;
+  transition: all 0.3s;
+  position: absolute;
+  right: 14px;
+  height: 1.5px;
+  border-radius: 2px;
+  background-color: white;
+}
+.hamburger-btn span:nth-of-type(1) {
+  top: 15px;
+  width: 60%;
+}
+.hamburger-btn span:nth-of-type(2) {
+  top: 30px;
+  width: 40%;
+}
+.hamburger-btn span:nth-of-type(3) {
+  top: 45px;
+  width: 30%;
+}
+.hamburger-btn.menu-active {
+  z-index: 300;
+  background-color: transparent;
+}
+.hamburger-btn.menu-active span {
+  background-color: white;
+  z-index: 30;
+}
+.hamburger-btn.menu-active span:nth-of-type(1) {
+  top: 18px;
+  right: 18px;
+  transform: translateY(6px) rotate(-135deg);
+  width: 40%;
+}
+.hamburger-btn.menu-active span:nth-of-type(2) {
+  opacity: 0;
+}
+.hamburger-btn.menu-active span:nth-of-type(3) {
+  top: 30px;
+  right: 18px;
+  transform: translateY(-6px) rotate(135deg);
+  width: 40%;
+}
+
+.follow-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 300;
+  border-bottom-left-radius: 120px;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 1.5s, opacity 1.5s;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.follow-btn.btn-active {
+  transform: none;
+  opacity: 1;
+}
+.follow-btn .hamburger-btn.menu-active span {
+  background-color: white;
+}
+
+/* ==============================
+	header
+===============================*/
+.header {
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 30px;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 1s, opacity 1.5s;
+}
+.header.active {
+  transform: none;
+  opacity: 1;
+}
+.header .header-container {
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
+}
+.header .header-container .site-name {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  align-items: center;
+  margin-left: 10px;
+}
+.header .header-container .site-name a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+.header .header-container .site-name a .flex-container {
+  align-items: center;
+}
+.header .header-container .site-name a .flex-container span {
+  color: #fff;
+}
+.header .header-container .site-name a .flex-container span:first-child {
+  font-size: 20px;
+}
+.header .header-container .site-name a .flex-container span:nth-child(2) {
+  font-size: 12px;
+}
+.header .header-container nav {
+  display: none;
+  color: #fff;
+}
+
+/* ==============================
+	SP First view
+===============================*/
+.first-view .view-wrapper {
+  width: 100%;
+  position: relative;
+}
+.first-view .view-wrapper .catchcopy {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  mix-blend-mode: multiply;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.first-view .view-wrapper .catchcopy .pc-catch {
+  display: none;
+}
+.first-view .view-wrapper .menu-pic-box {
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.first-view .view-wrapper .menu-pic-box .first-view-nav {
+  display: none;
+}
+.first-view .view-wrapper .menu-pic-box .first-view-image1 {
+  width: 50%;
+  height: 80%;
+  margin-right: -10%;
+}
+.first-view .view-wrapper .menu-pic-box .first-view-image2 {
+  width: 50%;
+  margin-bottom: 50px;
+}
+.first-view .scroll-text {
+  width: 100vw;
+  position: relative;
+  z-index: 100;
+  mix-blend-mode: multiply;
+}
+.first-view .scroll-text ul {
+  display: flex;
+  list-style: none;
+  width: 100vw;
+  overflow: hidden;
+  width: -moz-max-content;
+  width: max-content;
+}
+.first-view .scroll-text ul li {
+  color: #ccc;
+  line-height: initial;
+  font-size: 80px;
+  font-weight: bold;
+  white-space: nowrap;
+  padding: 0 10px 10px 0;
+  margin: 0;
+  animation: marquee-left 20s linear infinite;
+}
+@keyframes marquee-left {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ==============================
+	SP Message
+===============================*/
+.message {
+  margin-bottom: 80px;
+}
+.message h2 {
+  text-align: center;
+  font-size: 20px;
+  line-height: 60px;
+  padding: 5px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 20px;
+  letter-spacing: 0.3em;
+}
+.message h2 span {
+  font-size: 1.5em;
+}
+.message p {
+  text-align: left;
+}
+
+/* ==============================
+	SP what can i do
+===============================*/
+.what-can-i-do {
+  margin-bottom: 80px;
+}
+.what-can-i-do .section-title {
+  margin-bottom: 0;
+}
+.what-can-i-do .flex-container {
+  margin-bottom: 60px;
+}
+.what-can-i-do .flex-container .work-card-wrapper .my-work-card .image-container {
+  aspect-ratio: 16/9;
+  transform: translateY(-15px);
+}
+.what-can-i-do .flex-container .work-card-wrapper .my-work-card .image-container .work-num {
+  font-size: 70px;
+  line-height: 70px;
+  transform: translateY(50%);
+  margin-left: 20px;
+}
+.what-can-i-do .flex-container .work-card-wrapper .my-work-card .image-container img {
+  border-radius: 20px;
+}
+.what-can-i-do .flex-container .work-card-wrapper .my-work-card .char-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.what-can-i-do .strength .strength-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.what-can-i-do .strength .strength-title h3 {
+  padding: 0 10px 3px;
+  font-size: 20px;
+  display: inline-block;
+  border-bottom: 1px solid #444;
+  letter-spacing: 5px;
+}
+.what-can-i-do .strength .strength-title h3 span {
+  font-size: 1.5em;
+}
+/* ==============================
+	SP My Creations
+===============================*/
+.archive .creation-container {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #666;
+}
+
+.my-creations {
+  margin-bottom: 80px;
+}
+.my-creations .creation-container {
+  margin-bottom: 40px;
+}
+.my-creations .creation-container .image-container {
+  margin-bottom: 15px;
+}
+.my-creations .creation-container .image-container img {
+  aspect-ratio: 16/9;
+  box-shadow: 8px 8px 10px #ccc;
+  border-radius: 10px;
+}
+.my-creations .creation-container .image-container img.ranbd-tl {
+  border-top-left-radius: 90px;
+}
+.my-creations .creation-container .image-container img.ranbd-tr {
+  border-top-right-radius: 90px;
+}
+.my-creations .creation-container .image-container img.ranbd-bl {
+  border-bottom-left-radius: 90px;
+}
+.my-creations .creation-container .image-container img.ranbd-br {
+  border-bottom-right-radius: 90px;
+}
+.my-creations .creation-container .desc-container {
+  margin: 0;
+}
+.my-creations .creation-container .desc-container h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.my-creations .creation-container .desc-container ul li {
+  list-style-position: inside;
+}
+.my-creations .btn-wrap {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: white;
+}
+.my-creations .btn,
+.my-creations a.btn,
+.my-creations button.btn {
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: all 0.4s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #666;
+  border-radius: 0.5rem;
+}
+.my-creations .creation-btn .btn-wrap a.btn-svg,
+.my-creations .to-other-btn .btn-wrap a.btn-svg {
+  font-weight: 700;
+  line-height: 54px;
+  width: 204px;
+  height: 54px;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+}
+.my-creations .creation-btn .btn-wrap a.btn-svg svg,
+.my-creations .to-other-btn .btn-wrap a.btn-svg svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.my-creations .creation-btn .btn-wrap a.btn-svg svg rect,
+.my-creations .to-other-btn .btn-wrap a.btn-svg svg rect {
+  transition: all 500ms ease;
+  stroke: #666;
+  stroke-width: 2;
+  stroke-dasharray: 200px, 16px;
+  stroke-dashoffset: 70px;
+}
+.my-creations .creation-btn .btn-wrap a.btn-svg:hover svg rect,
+.my-creations .to-other-btn .btn-wrap a.btn-svg:hover svg rect {
+  stroke-dashoffset: 284px;
+}
+.my-creations .creation-btn .btn-wrap a.btn-svg span,
+.my-creations .to-other-btn .btn-wrap a.btn-svg span {
+  color: #666;
+}
+.my-creations .to-other-btn {
+  text-align: center;
+  margin: 5% 0 8%;
+  padding: 5px 20px;
+}
+
+/* ==============================
+	SP About me
+===============================*/
+.about-me {
+  margin-bottom: 80px;
+}
+.about-me .about-me-spacer {
+  padding-top: 30px;
+}
+.about-me .about-me-spacer .my-name {
+  margin-bottom: 60px;
+}
+.about-me .about-me-spacer .my-name h3 {
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.about-me .about-me-spacer .my-name h3 span:first-child {
+  font-size: 60px;
+  line-height: 35px;
+  margin-left: 20px;
+  color: #ddd;
+}
+.about-me .about-me-spacer .my-name h3 span:nth-child(2) {
+  font-size: 24px;
+  z-index: 10;
+}
+.about-me .about-me-spacer .flex-container.about-desc {
+  align-items: center;
+  gap: 50px;
+}
+.about-me .about-me-spacer .flex-container.about-desc .image-container {
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.about-me .about-me-spacer .flex-container.about-desc .image-container img {
+  height: auto;
+  border-radius: 50%;
+}
+.about-me .about-me-spacer .flex-container.about-desc .desc-container h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.about-me .about-me-spacer .flex-container.about-desc .desc-container .techniques {
+  margin-bottom: 20px;
+}
+/* ==============================
+	SP Inquiry Flow
+===============================*/
+.inquiry-flow {
+  margin-bottom: 80px;
+}
+.inquiry-flow .section-title {
+  margin-bottom: 50px;
+}
+.inquiry-flow .flex-container {
+  display: flex;
+  flex-direction: column;
+}
+.inquiry-flow .flex-container .title-pic-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.inquiry-flow .flex-container .title-pic-container h3 {
+  display: inline-block;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.inquiry-flow .flex-container .title-pic-container h3 span {
+  font-size: 12px;
+}
+.inquiry-flow .flex-container .title-pic-container .image-container {
+  width: 100%;
+  height: 200px;
+}
+.inquiry-flow .flex-container .desc-container .step {
+  margin-bottom: 35px;
+}
+.inquiry-flow .flex-container .desc-container .step:last-child {
+  margin-bottom: 0;
+}
+.inquiry-flow .flex-container .desc-container .step .num {
+  font-size: 16px;
+}
+.inquiry-flow .flex-container .desc-container .step h4 {
+  font-size: 24px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+/* ==============================
+	SP Get in Touch with me
+===============================*/
+.get-in-touch-with-me {
+  position: relative;
+}
+.get-in-touch-with-me .particle-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: initial;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -5;
+}
+.get-in-touch-with-me .content-wrapper .section-title-container {
+  padding-top: 70px;
+}
+.get-in-touch-with-me .content-wrapper .section-title-container h2 {
+  color: white;
+}
+.get-in-touch-with-me .content-wrapper .section-title-container .title-bar {
+  background-color: #fff;
+}
+.get-in-touch-with-me .content-wrapper .container {
+  padding-top: 1px;
+  padding-bottom: 100px;
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form {
+  width: 90%;
+  margin: 50px auto 0;
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-name, .get-in-touch-with-me .content-wrapper .container .contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-name:focus, .get-in-touch-with-me .content-wrapper .container .contact-form .contact-btn:focus, .get-in-touch-with-me .content-wrapper .container .contact-form textarea:focus {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+  transition: 0.8s;
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-name {
+  margin-bottom: 50px;
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-name::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-name::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-message {
+  height: 150px;
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-message::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-message::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-btn {
+  display: block;
+  width: 200px;
+  margin: 40px auto 0;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.get-in-touch-with-me .content-wrapper .container .contact-form .contact-btn:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+/* ==============================
+	SP footer
+===============================*/
+.footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  overflow: hidden;
+}
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 0;
+}
+.footer .container .footer-desc {
+  margin-bottom: 20px;
+}
+.footer .container .footer-desc p {
+  color: white;
+}
+.footer .container .footer-desc p span {
+  color: white;
+}
+.footer .flex-container {
+  flex-direction: row;
+}
+
+.sns-container .image-container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.sns-container .image-container:first-child {
+  margin-right: 60px;
+}
+.sns-container .image-container a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==============================
+	SP archive
+===============================*/
+.archive {
+  margin-bottom: 80px;
+}
+.archive .section-title-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.archive .creation-container {
+  margin-bottom: 40px;
+}
+.archive .creation-container .flex-container {
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.archive .creation-container .flex-container .image-container {
+  margin-bottom: 15px;
+}
+.archive .creation-container .flex-container .image-container img {
+  aspect-ratio: 16/9;
+  box-shadow: 8px 8px 10px #ccc;
+  border-radius: 10px;
+}
+.archive .creation-container .flex-container:nth-child(2) .image-container img {
+  border-top-right-radius: 80px;
+}
+.archive .creation-container .flex-container:nth-child(3) .image-container img {
+  border-bottom-left-radius: 60px;
+}
+.archive .creation-container .flex-container:nth-child(4) .image-container img {
+  border-bottom-right-radius: 90px;
+}
+.archive .creation-container .flex-container .desc-container {
+  margin: 0;
+}
+.archive .creation-container .flex-container .desc-container h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.archive .creation-container .flex-container .desc-container ul li {
+  list-style-position: inside;
+}
+.archive .creation-btn {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.archive .creation-btn button {
+  display: inline-block;
+}
+
+/* ==============================
+	privacy policy
+===============================*/
+.privacy-policy p {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  /* ==============================
+  	TB 共通
+  ===============================*/
+  body {
+    font-size: 18px;
+  }
+  .container {
+    padding: 0 50px;
+  }
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .section-title-container {
+    margin-bottom: 40px;
+  }
+  .section-title-container h2, .section-title-container h1 {
+    font-size: 48px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .section-title-container.reverse h2 {
+    margin-left: 30px;
+  }
+  .fadeIn > *:nth-child(1) {
+    animation-delay: 0.4s;
+  }
+  .fadeIn > *:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+  .fadeIn > *:nth-child(3) {
+    animation-delay: 1.2s;
+  }
+  .fadeIn > *:nth-child(4) {
+    animation-delay: 1.6s;
+  }
+  .fadeIn > *:nth-child(5) {
+    animation-delay: 2s;
+  }
+  /* ==============================
+  	TB ナビ（ハンバーガー）
+  ===============================*/
+  /* ==============================
+  	TB header
+  ===============================*/
+  .header .header-container .site-name a .flex-container span:first-child {
+    font-size: 26px;
+  }
+  .header .header-container .site-name a .flex-container span:nth-child(2) {
+    font-size: 16px;
+  }
+  /* ==============================
+  	TB First view
+  ===============================*/
+  .first-view {
+    height: 90%;
+  }
+  .first-view .view-wrapper .catchcopy {
+    top: 16%;
+  }
+  .first-view .scroll-text {
+    transform: translateY(-40%);
+  }
+  .first-view .scroll-text ul li {
+    line-height: 150px;
+    font-size: 150px;
+  }
+  /* ==============================
+  	TB Message
+  ===============================*/
+  .message h2 {
+    font-size: 28px;
+    letter-spacing: 14px;
+  }
+  /* ==============================
+  	TB what can i do
+  ===============================*/
+  .what-can-i-do .section-title-container {
+    margin-bottom: 0;
+  }
+  .what-can-i-do .flex-container {
+    flex-direction: row;
+    padding: 0 50px;
+    gap: 15px;
+    margin-bottom: 80px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(1) {
+    margin-top: 0px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(2) {
+    margin-top: 40px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(3) {
+    margin-top: 80px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .my-work-card .image-container {
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .my-work-card .char-box {
+    padding: 0;
+  }
+  .what-can-i-do .strength .strength-title h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .what-can-i-do .strength .strength-desc {
+    width: 80%;
+    margin: 0 auto;
+  }
+  /* ==============================
+  	TB My Creations
+  ===============================*/
+  .my-creations .creation-container,
+  .archive .creation-container {
+    flex-direction: row;
+    margin-bottom: 60px;
+  }
+  .my-creations .creation-container:nth-child(odd),
+  .archive .creation-container:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  .my-creations .creation-container .image-container,
+  .archive .creation-container .image-container {
+    width: 48%;
+  }
+  .my-creations .creation-container .desc-container,
+  .archive .creation-container .desc-container {
+    width: 50%;
+    padding: 0 10px;
+  }
+  .archive .creation-container {
+    padding-bottom: 50px;
+  }
+  /* ==============================
+  	TB About me
+  ===============================*/
+  .about-me .about-me-container .my-name h3 span:first-child {
+    font-size: 90px;
+  }
+  .about-me .about-me-container .my-name h3 span:nth-child(2) {
+    font-size: 32px;
+  }
+  .about-me .about-me-container .flex-container {
+    flex-direction: row;
+  }
+  /* ==============================
+  	TB Inquiry Flow
+  ===============================*/
+  .inquiry-flow .flex-container .desc-container .step .num {
+    font-size: 20px;
+  }
+  /* ==============================
+  	TB Get in Touch with me
+  ===============================*/
+  /* ==============================
+  	TB archive
+  ===============================*/
+  .archive .section-title-container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .archive .creation-container .flex-container {
+    flex-direction: row;
+    gap: 30px;
+  }
+  .archive .creation-container .flex-container .desc-container h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .archive .creation-btn {
+    text-align: center;
+  }
+  .archive .creation-btn button {
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* ==============================
+  	PC 共通
+  ===============================*/
+  body {
+    line-height: 36px;
+    letter-spacing: 1.5px;
+  }
+  .section-title-container {
+    margin-bottom: 50px;
+  }
+  .section-title-container h2, .section-title-container h1 {
+    font-size: 80px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  /* ==============================
+  	PC ナビ（ハンバーガー）
+  ===============================*/
+  /* ==============================
+  	PC header
+  ===============================*/
+  .header .header-container {
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  .header .header-container .site-name a .flex-container span:first-child {
+    font-size: 28px;
+  }
+  .header .header-container .site-name a .flex-container span:nth-child(2) {
+    font-size: 18px;
+  }
+  .header .header-container nav {
+    display: none;
+  }
+  .header .header-container nav ul {
+    display: flex;
+    align-items: center;
+  }
+  .header .header-container nav ul li {
+    margin-right: 20px;
+  }
+  .header .header-container nav ul li:last-child {
+    margin-right: 0;
+  }
+  .header .header-container nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  /* ==============================
+  	PC First view
+  ===============================*/
+  .first-view .view-wrapper .catchcopy {
+    top: 10%;
+    left: 1%;
+  }
+  .first-view .view-wrapper .catchcopy .sp-catch {
+    display: none;
+  }
+  .first-view .view-wrapper .catchcopy .pc-catch {
+    display: block;
+    width: 98%;
+  }
+  .first-view .view-wrapper .menu-pic-box .first-view-nav {
+    display: block;
+    font-size: 28px;
+    transform: translateX(40%) translateY(-35%);
+  }
+  .first-view .view-wrapper .menu-pic-box .first-view-nav ul li {
+    margin-bottom: 20px;
+    white-space: nowrap;
+  }
+  .first-view .view-wrapper .menu-pic-box .first-view-nav ul li a {
+    text-decoration: none;
+    transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+    padding-bottom: 5px;
+    position: relative;
+  }
+  .first-view .view-wrapper .menu-pic-box .first-view-nav ul li a::before {
+    background: red;
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: transform 0.2s;
+  }
+  .first-view .view-wrapper .menu-pic-box .first-view-nav ul li a:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+  .first-view .scroll-text ul li {
+    font-size: 200px;
+    line-height: 220px;
+  }
+  /* ==============================
+  	PC Message
+  ===============================*/
+  .message {
+    margin-bottom: 150px;
+  }
+  .message h2 {
+    font-size: 32px;
+    letter-spacing: 16px;
+    line-height: 60px;
+  }
+  .message .message-desc {
+    text-align: center;
+  }
+  /* ==============================
+  	PC what can i do
+  ===============================*/
+  .what-can-i-do {
+    margin-bottom: 150px;
+  }
+  .what-can-i-do .section-title-container {
+    margin-bottom: 60px;
+  }
+  .what-can-i-do .flex-container {
+    gap: 60px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(1) {
+    margin-top: 0px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(2) {
+    margin-top: 60px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper:nth-child(3) {
+    margin-top: 120px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .my-work-card .image-container {
+    margin-bottom: 15px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .my-work-card .image-container .work-num {
+    font-size: 90px;
+  }
+  .what-can-i-do .flex-container .work-card-wrapper .my-work-card .char-box h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  /* ==============================
+  	PC My Creations
+  ===============================*/
+  .my-creations,
+  .archive {
+    margin-bottom: 150px;
+  }
+  .my-creations .creation-container,
+  .archive .creation-container {
+    padding: 0 50px;
+  }
+  /* ==============================
+  	PC About me
+  ===============================*/
+  .about-me {
+    margin-bottom: 150px;
+  }
+  .about-me .about-me-container .my-name h3 span:first-child {
+    font-size: 110px;
+    line-height: 70px;
+  }
+  .about-me .about-me-container .my-name h3 span:nth-child(2) {
+    font-size: 42px;
+  }
+  /* ==============================
+  	PC Inquiry Flow
+  ===============================*/
+  .inquiry-flow {
+    margin-bottom: 150px;
+  }
+  .inquiry-flow .flex-container {
+    flex-direction: row;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  .inquiry-flow .flex-container .title-pic-container {
+    text-align: left;
+    width: 30%;
+  }
+  .inquiry-flow .flex-container .title-pic-container h3 {
+    padding-left: 0;
+  }
+  .inquiry-flow .flex-container .title-pic-container .image-container {
+    height: initial;
+  }
+  .inquiry-flow .flex-container .desc-container.container {
+    padding-right: 0;
+    width: 65%;
+  }
+  .inquiry-flow .flex-container .desc-container.container .step .num {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  .inquiry-flow .flex-container .desc-container.container .step h4 {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  /* ==============================
+  	PC Get in Touch with me
+  ===============================*/
+  /* ==============================
+  	PC archive
+  ===============================*/
+  .archive .section-title-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .archive .creation-container .flex-container {
+    gap: 40px;
+  }
+}/*# sourceMappingURL=style.css.map */
